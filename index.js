@@ -20,7 +20,7 @@ app.use(express.json());
 
 const routes = require('./routes/routes');
 
-app.use('/api', routes);
+app.use('/', routes);
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server Started at ${process.env.PORT || 3000}`);
