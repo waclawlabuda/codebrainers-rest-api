@@ -5,7 +5,6 @@ const router = express.Router();
 //Post plant Method
 router.post('/plant/post', async (req, res) => {
     const data = new Model.Plant({
-        id: req.body._id,
         name: req.body.name,
         blooming: req.body.blooming,
         requiredHumidity: req.body.requiredHumidity,
@@ -89,7 +88,6 @@ router.get('/room/', async (req, res) => {
 //Post room Method
 router.post('/room/post', async (req, res) => {
     const data = new Model.Room({
-        id: req.body._id,
         name: req.body.name,
     })
 
@@ -116,7 +114,6 @@ router.get('/category/', async (req, res) => {
 //Post category Method
 router.post('/category/post', async (req, res) => {
     const data = new Model.Category({
-        id: req.body._id,
         name: req.body.name,
     })
 

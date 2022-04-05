@@ -5,10 +5,6 @@ const plantDataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
-    id: {
-        required: true,
-        type: String
-    },
     name: {
         required: true,
         type: String
@@ -51,19 +47,11 @@ const categoryDataSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String
-    },
-    id: {
-        required: true,
-        type: String
     }
 })
 
 const roomDataSchema = new mongoose.Schema({
     name: {
-        required: true,
-        type: String
-    },
-    id: {
         required: true,
         type: String
     }
