@@ -41,21 +41,21 @@ const plantDataSchema = new mongoose.Schema({
         required: false,
         type: Number
     }
-})
+});
 
 const categoryDataSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String
     }
-})
+});
 
 const roomDataSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String
     }
-})
+});
 
 const Room = mongoose.model('Room', roomDataSchema);
 const Category = mongoose.model('Category', categoryDataSchema);

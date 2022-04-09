@@ -2,7 +2,7 @@ const express = require('express');
 const Model = require('../models/model');
 const router = express.Router();
 
-//Post plant Method
+//Post plant method
 router.post('/plant/post', async (req, res) => {
     const data = new Model.Plant({
         name: req.body.name,
@@ -22,7 +22,7 @@ router.post('/plant/post', async (req, res) => {
     }
 })
 
-//Get all plants Method
+//Get all plants method
 router.get('/plant/', async (req, res) => {
     try {
         const data = await Model.Plant.find();
@@ -33,7 +33,7 @@ router.get('/plant/', async (req, res) => {
     }
 })
 
-//Get plant by ID Method
+//Get plant by ID method
 router.get('/plant/:id', async (req, res) => {
     try {
         const data = await Model.Plant.findById(req.params.id);
@@ -44,7 +44,7 @@ router.get('/plant/:id', async (req, res) => {
     }
 })
 
-//Update plant by ID Method
+//Update plant by ID method
 router.patch('/plant/update/:id', async (req, res) => {
     try {
         const id = req.params.id;
@@ -62,7 +62,7 @@ router.patch('/plant/update/:id', async (req, res) => {
     }
 })
 
-//Delete plant by ID Method
+//Delete plant by ID method
 router.delete('/plant/delete/:id', async (req, res) => {
     try {
         const id = req.params.id;
@@ -74,7 +74,7 @@ router.delete('/plant/delete/:id', async (req, res) => {
     }
 })
 
-//Get all rooms Method
+//Get all rooms method
 router.get('/room/', async (req, res) => {
     try {
         const data = await Model.Room.find();
@@ -85,7 +85,7 @@ router.get('/room/', async (req, res) => {
     }
 })
 
-//Post room Method
+//Post room method
 router.post('/room/post', async (req, res) => {
     const data = new Model.Room({
         name: req.body.name,
@@ -100,7 +100,7 @@ router.post('/room/post', async (req, res) => {
     }
 })
 
-//Get all categories Method
+//Get all categories method
 router.get('/category/', async (req, res) => {
     try {
         const data = await Model.Category.find();
@@ -111,7 +111,7 @@ router.get('/category/', async (req, res) => {
     }
 })
 
-//Post category Method
+//Post category method
 router.post('/category/post', async (req, res) => {
     const data = new Model.Category({
         name: req.body.name,
