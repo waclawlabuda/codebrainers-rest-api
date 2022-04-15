@@ -115,6 +115,8 @@ router.get('/categories/', async (req, res) => {
 router.post('/categories/', async (req, res) => {
     const data = new Model.Category({
         name: req.body.name,
+        id: req.body.id,
+        slug: req.body.slug
     })
 
     try {
