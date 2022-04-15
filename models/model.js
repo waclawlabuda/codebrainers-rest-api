@@ -1,23 +1,23 @@
 const mongoose = require('mongoose');
 
 const plantDataSchema = new mongoose.Schema({
-    requiredTemperature: {
+    required_temperature: {
         required: true,
-        type: String
+        type: Number
     },
     name: {
         required: true,
         type: String
     },
-    requiredExposure: {
+    required_exposure: {
         required: true,
         type: String
     },
-    lastFertilized: {
+    last_fertilized: {
         required: false,
         type: String
     },
-    lastWatered: {
+    last_watered: {
         required: false,
         type: String
     },
@@ -25,11 +25,15 @@ const plantDataSchema = new mongoose.Schema({
         required: false,
         type: Number
     },
+    category_slug: {
+        required: false,
+        type: String
+    },
     difficulty: {
         required: true,
         type: Number
     },
-    requiredHumidity: {
+    required_humidity: {
         required: true,
         type: String
     },
@@ -40,6 +44,22 @@ const plantDataSchema = new mongoose.Schema({
     room: {
         required: false,
         type: Number
+    },
+    fertilizing_interval: {
+        required: true,
+        type: Number
+    },
+    watering_interval: {
+        required: true,
+        type: Number
+    },
+    id: {
+        required: true,
+        type: Number
+    },
+    url: {
+        required: false,
+        type: String
     }
 });
 
@@ -62,7 +82,11 @@ const roomDataSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String
-    }
+    },
+    id: {
+        required: true,
+        type: Number
+    },
 });
 
 const Room = mongoose.model('Room', roomDataSchema);

@@ -7,10 +7,19 @@ router.post('/plants', async (req, res) => {
     const data = new Model.Plant({
         name: req.body.name,
         blooming: req.body.blooming,
-        requiredHumidity: req.body.requiredHumidity,
+        required_humidity: req.body.required_humidity,
         difficulty: req.body.difficulty,
-        requiredExposure: req.body.requiredExposure,
-        requiredTemperature: req.body.requiredTemperature,
+        required_exposure: req.body.required_exposure,
+        required_temperature: req.body.required_temperature,
+        last_fertilized: req.body.last_fertilized,
+        last_watered: req.body.last_watered,
+        category: req.body.category,
+        category_slug: req.body.category_slug,
+        room: req.body.room,
+        fertilizing_interval: req.body.fertilizing_interval,
+        watering_interval: req.body.watering_interval,
+        id: req.body.id,
+        url: req.body.url,
     })
 
     try {
@@ -89,6 +98,7 @@ router.get('/rooms/', async (req, res) => {
 router.post('/rooms', async (req, res) => {
     const data = new Model.Room({
         name: req.body.name,
+        id: req.body.id,
     })
 
     try {
