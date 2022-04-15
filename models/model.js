@@ -70,7 +70,7 @@ const categoryDataSchema = new mongoose.Schema({
     },
     id: {
         required: true,
-        type: String
+        type: Number
     },
     slug: {
         required: true,
