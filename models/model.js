@@ -47,6 +47,14 @@ const categoryDataSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String
+    },
+    id: {
+        required: true,
+        type: String
+    },
+    slug: {
+        required: true,
+        type: String
     }
 });
 
