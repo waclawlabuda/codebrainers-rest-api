@@ -72,7 +72,7 @@ router.patch('/plants/:id', async (req, res) => {
 router.delete('/plants/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const data = await Model.Plant.findByIdAndDelete(id)
+        const data = await Model.Plant.deleteOne({ id });
         res.send(`Document with ${data.name} has been deleted..`)
     }
     catch (error) {
