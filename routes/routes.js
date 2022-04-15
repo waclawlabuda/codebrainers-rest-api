@@ -54,15 +54,12 @@ router.get('/plants/:id', async (req, res) => {
 })
 
 //Update plant by ID method
-router.patch('/plants/update/:id', async (req, res) => {
+router.patch('/plants/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
-        const options = { new: true };
 
-        const result = await Model.Plant.findByIdAndUpdate(
-            id, updatedData, options
-        )
+        const result = await Model.Plant.find({ id }, { _id: 0, __v: 0 }).update(updatedData);
 
         res.send(result)
     }
