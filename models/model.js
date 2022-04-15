@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const plantDataSchema = new mongoose.Schema({
     required_temperature: {
         required: true,
-        type: Number
+        type: String
     },
     name: {
         required: true,
