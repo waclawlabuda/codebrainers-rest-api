@@ -45,7 +45,7 @@ router.get('/plants/', async (req, res) => {
 //Get plant by ID method
 router.get('/plants/:id', async (req, res) => {
     try {
-        const data = await Model.Plant.find({ id: req.params.id});
+        const data = await Model.Plant.find({ id: req.params.id}, { _id: 0, __v: 0 });
         res.json(data)
     }
     catch (error) {
