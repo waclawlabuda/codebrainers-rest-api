@@ -3,7 +3,7 @@ const Model = require('../models/model');
 const router = express.Router();
 
 //Post plant method
-router.post('/plant/post', async (req, res) => {
+router.post('/plants', async (req, res) => {
     const data = new Model.Plant({
         name: req.body.name,
         blooming: req.body.blooming,
@@ -23,7 +23,7 @@ router.post('/plant/post', async (req, res) => {
 })
 
 //Get all plants method
-router.get('/plant/', async (req, res) => {
+router.get('/plants/', async (req, res) => {
     try {
         const data = await Model.Plant.find();
         res.json(data)
@@ -34,7 +34,7 @@ router.get('/plant/', async (req, res) => {
 })
 
 //Get plant by ID method
-router.get('/plant/:id', async (req, res) => {
+router.get('/plants/:id', async (req, res) => {
     try {
         const data = await Model.Plant.findById(req.params.id);
         res.json(data)
@@ -45,7 +45,7 @@ router.get('/plant/:id', async (req, res) => {
 })
 
 //Update plant by ID method
-router.patch('/plant/update/:id', async (req, res) => {
+router.patch('/plants/update/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
@@ -63,7 +63,7 @@ router.patch('/plant/update/:id', async (req, res) => {
 })
 
 //Delete plant by ID method
-router.delete('/plant/delete/:id', async (req, res) => {
+router.delete('/plants/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await Model.Plant.findByIdAndDelete(id)
@@ -75,7 +75,7 @@ router.delete('/plant/delete/:id', async (req, res) => {
 })
 
 //Get all rooms method
-router.get('/room/', async (req, res) => {
+router.get('/rooms/', async (req, res) => {
     try {
         const data = await Model.Room.find();
         res.json(data)
@@ -86,7 +86,7 @@ router.get('/room/', async (req, res) => {
 })
 
 //Post room method
-router.post('/room/post', async (req, res) => {
+router.post('/rooms', async (req, res) => {
     const data = new Model.Room({
         name: req.body.name,
     })
@@ -101,7 +101,7 @@ router.post('/room/post', async (req, res) => {
 })
 
 //Get all categories method
-router.get('/category/', async (req, res) => {
+router.get('/categories/', async (req, res) => {
     try {
         const data = await Model.Category.find();
         res.json(data)
@@ -112,7 +112,7 @@ router.get('/category/', async (req, res) => {
 })
 
 //Post category method
-router.post('/category/post', async (req, res) => {
+router.post('/categories/', async (req, res) => {
     const data = new Model.Category({
         name: req.body.name,
     })
