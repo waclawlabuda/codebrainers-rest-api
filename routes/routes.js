@@ -34,7 +34,7 @@ router.post('/plants', async (req, res) => {
 //Get all plants method
 router.get('/plants/', async (req, res) => {
     try {
-        const data = await Model.Plant.find();
+        const data = await Model.Plant.find({}, { _id: 0, __v: 0 });
         res.json(data)
     }
     catch (error) {
@@ -86,7 +86,7 @@ router.delete('/plants/:id', async (req, res) => {
 //Get all rooms method
 router.get('/rooms/', async (req, res) => {
     try {
-        const data = await Model.Room.find();
+        const data = await Model.Room.find({}, { _id: 0, __v: 0 });
         res.json(data)
     }
     catch (error) {
@@ -113,7 +113,7 @@ router.post('/rooms', async (req, res) => {
 //Get all categories method
 router.get('/categories/', async (req, res) => {
     try {
-        const data = await Model.Category.find();
+        const data = await Model.Category.find({}, { _id: 0, __v: 0 });
         res.json(data)
     }
     catch (error) {
