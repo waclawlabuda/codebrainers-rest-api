@@ -151,9 +151,9 @@ router.post('/api-token-auth/', async (req, res) => {
                 token: 'eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiSm9lIENvZGVyIn0.5dlp7GmziL2QS06sZgK4mtaqv0_xX4oFUuTDh1zHK4U'
             };
 
-            res.json(responseObj);
+            return res.status(200).json(responseObj);
         }
-        res.status(400).send("Invalid Credentials");
+        return res.status(400).send("Invalid Credentials");
     }
     catch (error) {
         res.status(400).json({ message: error.message })
