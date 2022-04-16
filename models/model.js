@@ -89,11 +89,23 @@ const roomDataSchema = new mongoose.Schema({
     },
 });
 
+const authDataSchema = new mongoose.Schema({
+    login: {
+        required: true,
+        type: String
+    },
+    password: {
+        required: true,
+        type: String
+    },
+});
+
 const Room = mongoose.model('Room', roomDataSchema);
 const Category = mongoose.model('Category', categoryDataSchema);
 const Plant = mongoose.model('Plant', plantDataSchema);
+const Auth = mongoose.model('Auth', authDataSchema);
 
 // Exporting our model objects
 module.exports = {
-    Room, Category, Plant
+    Room, Category, Plant, Auth
 }

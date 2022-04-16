@@ -135,4 +135,29 @@ router.post('/categories/', async (req, res) => {
     }
 })
 
+//authentication method
+router.post('/api-token-auth/', async (req, res) => {
+    try {
+        const { login, password } = req.body;
+
+        if (!(login && password)) {
+            res.status(400).send("All input is required");
+        }
+
+        if (login === 'admin' && password === 'admin123') {
+            const responseObj = {
+                login,
+                password,
+                token: 'eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiSm9lIENvZGVyIn0.5dlp7GmziL2QS06sZgK4mtaqv0_xX4oFUuTDh1zHK4U'
+            };
+
+            res.status(200).json(responseObj);
+        }
+        res.status(400).send("Invalid Credentials");
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+})
+
 module.exports = router;
