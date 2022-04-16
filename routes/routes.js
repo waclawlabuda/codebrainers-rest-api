@@ -138,15 +138,15 @@ router.post('/categories/', async (req, res) => {
 //authentication method
 router.post('/api-token-auth/', async (req, res) => {
     try {
-        const { login, password } = req.body;
+        const { username, password } = req.body;
 
-        if (!(login && password)) {
+        if (!(username && password)) {
             res.status(400).send("All input is required");
         }
 
-        if (login === 'admin' && password === 'admin123') {
+        if (username === 'admin' && password === 'admin123') {
             const responseObj = {
-                login,
+                username,
                 password,
                 token: 'eyJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoiSm9lIENvZGVyIn0.5dlp7GmziL2QS06sZgK4mtaqv0_xX4oFUuTDh1zHK4U'
             };

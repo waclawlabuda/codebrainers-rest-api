@@ -90,7 +90,7 @@ const roomDataSchema = new mongoose.Schema({
 });
 
 const authDataSchema = new mongoose.Schema({
-    login: {
+    username: {
         required: true,
         type: String
     },
