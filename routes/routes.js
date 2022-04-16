@@ -24,10 +24,10 @@ router.post('/plants', async (req, res) => {
 
     try {
         const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
+        res.status(200).json(dataToSave);
     }
     catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message });
     }
 })
 
@@ -35,10 +35,10 @@ router.post('/plants', async (req, res) => {
 router.get('/plants/', async (req, res) => {
     try {
         const data = await Model.Plant.find({}, { _id: 0, __v: 0 });
-        res.json(data)
+        res.json(data);
     }
     catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
 })
 
@@ -46,10 +46,10 @@ router.get('/plants/', async (req, res) => {
 router.get('/plants/:id', async (req, res) => {
     try {
         const data = await Model.Plant.find({ id: req.params.id}, { _id: 0, __v: 0 });
-        res.json(data)
+        res.json(data);
     }
     catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
 })
 
@@ -61,10 +61,10 @@ router.patch('/plants/:id', async (req, res) => {
 
         const result = await Model.Plant.find({ id }, { _id: 0, __v: 0 }).update(updatedData);
 
-        res.send(result)
+        res.send(result);
     }
     catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
 })
 
@@ -73,10 +73,10 @@ router.delete('/plants/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const data = await Model.Plant.deleteOne({ id });
-        res.send(`Document with ${data.name} has been deleted..`)
+        res.send(`Document with ${data.name} has been deleted..`);
     }
     catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message });
     }
 })
 
@@ -84,10 +84,10 @@ router.delete('/plants/:id', async (req, res) => {
 router.get('/rooms/', async (req, res) => {
     try {
         const data = await Model.Room.find({}, { _id: 0, __v: 0 });
-        res.json(data)
+        res.json(data);
     }
     catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
 })
 
@@ -95,15 +95,15 @@ router.get('/rooms/', async (req, res) => {
 router.post('/rooms', async (req, res) => {
     const data = new Model.Room({
         name: req.body.name,
-        id: req.body.id,
-    })
+        id: req.body.id ?? Math.floor(Math.random() * 90 + 10),
+    });
 
     try {
         const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
+        res.status(200).json(dataToSave);
     }
     catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message });
     }
 })
 
@@ -111,10 +111,10 @@ router.post('/rooms', async (req, res) => {
 router.get('/categories/', async (req, res) => {
     try {
         const data = await Model.Category.find({}, { _id: 0, __v: 0 });
-        res.json(data)
+        res.json(data);
     }
     catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).json({ message: error.message });
     }
 })
 
@@ -122,16 +122,16 @@ router.get('/categories/', async (req, res) => {
 router.post('/categories/', async (req, res) => {
     const data = new Model.Category({
         name: req.body.name,
-        id: req.body.id,
+        id: req.body.id ?? Math.floor(Math.random() * 90 + 10),
         slug: req.body.slug
-    })
+    });
 
     try {
         const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
+        res.status(200).json(dataToSave);
     }
     catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message });
     }
 })
 
@@ -156,7 +156,7 @@ router.post('/api-token-auth/', async (req, res) => {
         return res.status(400).send("Invalid Credentials");
     }
     catch (error) {
-        res.status(400).json({ message: error.message })
+        res.status(400).json({ message: error.message });
     }
 })
 
