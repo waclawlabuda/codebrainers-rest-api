@@ -54,7 +54,7 @@ const plantDataSchema = new mongoose.Schema({
         type: Number
     },
     id: {
-        required: true,
+        required: false,
         type: Number
     },
     url: {

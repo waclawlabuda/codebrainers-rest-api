@@ -18,7 +18,7 @@ router.post('/plants', async (req, res) => {
         room: req.body.room,
         fertilizing_interval: req.body.fertilizing_interval,
         watering_interval: req.body.watering_interval,
-        id: req.body.id,
+        id: req.body.id ?? Math.floor(Math.random() * 90 + 10),
         url: req.body.url,
     })
 
